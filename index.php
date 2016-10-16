@@ -1,5 +1,5 @@
 <?php
-  $conexao = mysqli_connect("localhost", "root", "123");
+  $conexao = mysqli_connect("localhost", "root", "elementaryos");
 
   if(!$conexao){
     echo "Não conecta com o Servidor!<br/>";
@@ -53,7 +53,7 @@
             if(mysqli_num_rows($tb_medico)==0){
               echo "Nenhum médico encontrado!";
             }else{
-              while($resultadoMedico = mysql_fetch_array($tb_medico)){
+              while($resultadoMedico = mysqli_fetch_array($tb_medico)){
           ?>
                 <div class="resultado">
                   <div class="medico">
