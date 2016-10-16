@@ -77,6 +77,10 @@
                   <div class="medico">
                     <?=$resultadoMedico["tx_especialidade"]?>
                   </div>
+                  <div class="botao">
+                    <input type="button" name="alterar" id="alterar" value="Alterar">
+                    <input type="button" name="excluir" id="excluir" value="Excluir">
+                  </div>
                 </div>
           <?php
               }
