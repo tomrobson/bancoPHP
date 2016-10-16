@@ -5,11 +5,11 @@
     echo "Não conecta com o Servidor!<br/>";
   }else{
     // echo "Conectado ao Servidor!<br/>";
-  }
-  if(!mysqli_select_db($conexao, "bd_hospital")){
-    echo "Não conecta ao Banco de Dados!<br/>";
-  }else{
-    // echo "Conectado ao Banco de Dados!";
+    if(!mysqli_select_db($conexao, "bd_hospital")){
+      echo "Não conecta ao Banco de Dados!<br/>";
+    }else{
+      // echo "Conectado ao Banco de Dados!";
+    }
   }
 ?>
 
