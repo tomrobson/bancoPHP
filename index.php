@@ -1,5 +1,5 @@
 <?php
-  $conexao = mysqli_connect("localhost", "root", "elementaryos");
+  $conexao = mysqli_connect("localhost", "root", "123");
 
   if(!$conexao){
     echo "Não conecta com o Servidor!<br/>";
