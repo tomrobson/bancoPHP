@@ -57,13 +57,13 @@
           ?>
                 <div class="resultado">
                   <div class="medico">
-                    <?=echo $resultadoMedico["tx_nome"];?>
+                    <?= $resultadoMedico["tx_nome"];?>
                   </div>
                   <div class="medico">
-                    <?=echo $resultadoMedico["tx_cpf"];?>
+                    <?= $resultadoMedico["tx_cpf"];?>
                   </div>
                   <div class="medico">
-                    <?=echo $resultadoMedico["tx_crm"];?>
+                    <?= $resultadoMedico["tx_crm"];?>
                   </div>
                   <div class="medico">
                     <?php
@@ -75,7 +75,7 @@
                     ?>
                   </div>
                   <div class="medico">
-                    <?=echo $resultadoMedico["tx_especialidade"];?>
+                    <?= $resultadoMedico["tx_especialidade"];?>
                   </div>
                   <div class="botao">
                     <a href="alterar.html"><input type="button" name="alterar" id="alterar" value="Alterar"></a>
