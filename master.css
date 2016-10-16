@@ -7,7 +7,7 @@ section{
 .topo{
   float: left;
   padding-left: 10px;
-  padding-right: 160px;
+  width: 200px;
   border: 1px solid black;
 }
 .resultado{
@@ -16,6 +16,8 @@ section{
 .medico{
   float: left;
   border: 1px solid black;
+  padding-left: 10px;
+  width: 200px;
 }
 .botao{
   border-radius: 1px solid white;
