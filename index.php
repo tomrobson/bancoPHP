@@ -66,7 +66,7 @@
                     <?=$resultadoMedico["tx_crm"]?>
                   </div>
                   <div class="medico">
-                    <?=
+                    <?php
                       if($resultadoMedico["tx_sexo"]=="M"){
                         echo "Masculino";
                       }else{
