@@ -1,0 +1,19 @@
+header{
+
+}
+section{
+
+}
+.topo{
+  float: left;
+  padding-left: 10px;
+  padding-right: 160px;
+  border: 1px solid black;
+}
+.resultado{
+  clear: both;
+}
+.medico{
+  float: left;
+  border: 1px solid black;
+}
