@@ -45,7 +45,7 @@
 
         <div class="resultado">
           <?php
-            $medico = "select tx_nome, tx_cpf,tx_crm, tx_sexo, tx_especialidade
+            $medico = "select id_medico, tx_nome, tx_cpf,tx_crm, tx_sexo, tx_especialidade
               from tb_medico, tb_especialidade where especialidade_id=id_especialidade";
 
             $tb_medico = mysqli_query($conexao, $medico);
@@ -77,10 +77,18 @@
                   <div class="medico">
                     <?= $resultadoMedico["tx_especialidade"];?>
                   </div>
-                  <div class="botao">
-                    <a href="alterar.html"><input type="button" name="alterar" id="alterar" value="Alterar"></a>
-                    <a href="excluir.html"><input type="button" name="excluir" id="excluir" value="Excluir"></a>
-                  </div>
+                  <form class="" action="alterar.php" method="post">
+                    <div class="botao">
+                      <input type="submit" name="alterar" class="alterar"
+                        id="alterar" value="Alterar">
+                    </div>
+                  </form>
+                  <form class="" action="index.php" method="post">
+                    <div class="botao">
+                      <input type="submit" name="excluir" class="excluir"
+                        id="excluir" value="Excluir">
+                    </div>
+                  </form>
                 </div>
           <?php
               }
