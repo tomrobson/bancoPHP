@@ -20,7 +20,6 @@
     <title>Agenda de Contatos</title>
   </head>
   <body>
-    <h1>Partiu Dogão?!</h1>
     <h3>Agenda de Contatos</h3>
     <table>
       <tr>
@@ -30,7 +29,7 @@
         <td>Telefone</td>
       </tr>
       <?php
-        $sql = "select nome, sexo, nascimento, telefone from pessoa";
+        $sql = "select * nome, sexo, nascimento, telefone from pessoa";
         $contato = mysqli_query($conexao, $sql);
 
         if(mysqli_fetch_array($contato)==0) {
@@ -42,6 +41,7 @@
         }
         else {
           while ($linha = mysqli_fetch_array($contato)) {
+            print_r(mysqli_fetch_array($contato));
       ?>
           <tr>
             <td><?= $linha["nome"] ?></td>
@@ -56,7 +56,7 @@
             </td>
             <td>
               <?php
-                $data = date-$linha["nascimento"];
+                $data = date('Y')-$linha["nascimento"];
                 echo $data;
               ?>
             </td>
