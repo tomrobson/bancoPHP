@@ -16,56 +16,101 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="master.css" style="styles/css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- <link rel="stylesheet" href="master.css" style="styles/css"> -->
     <title>Agenda de Contatos</title>
   </head>
   <body>
-    <h3>Agenda de Contatos</h3>
-    <table>
-      <tr>
-        <td>Nome</td>
-        <td>Sexo</td>
-        <td>Idade</td>
-        <td>Telefone</td>
-      </tr>
-      <?php
-        $sql = "select * nome, sexo, nascimento, telefone from pessoa";
+    <div class="row">
+      <div class="">
+        <h3>Agenda de Contatos</h3>
+      </div>
+    </div>
+    <div class="row">
+      <table class="stack">
+        <tr>
+          <td>Nome</td>
+          <td>Sexo</td>
+          <td>Idade</td>
+          <td>Telefone</td>
+          <td>Ação</td>
+        </tr>
+        <?php
+        $sql = "select id_pessoa, nome, sexo, idade, telefone from pessoa";
         $contato = mysqli_query($conexao, $sql);
 
-        if(mysqli_fetch_array($contato)==0) {
-      ?>
+        if(mysqli_num_rows($contato)==0) {
+          ?>
           <tr>
-            <td id="vazio">Nenhum contato encontrado!</td>
+            <td>Nenhum contato encontrado!</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
-      <?php
+          <?php
         }
         else {
           while ($linha = mysqli_fetch_array($contato)) {
-            print_r(mysqli_fetch_array($contato));
-      ?>
-          <tr>
-            <td><?= $linha["nome"] ?></td>
-            <td>
-              <?php
+            ?>
+            <tr>
+              <td><?= $linha["nome"] ?></td>
+              <td>
+                <?php
                 if($linha["sexo"]=='M'){
                   echo "Masculino";
-                }else{
+                }else if($linha["sexo"]=='F'){
                   echo "Feminino";
+                }else{
+                  echo "Erro";
                 }
-              ?>
-            </td>
-            <td>
-              <?php
-                $data = date('Y')-$linha["nascimento"];
-                echo $data;
-              ?>
-            </td>
-            <td><?= $linha["telefone"] ?></td>
-          </tr>
-      <?php
+                ?>
+              </td>
+              <td><?= $linha["idade"] ?></td>
+              <td><?= $linha["telefone"] ?></td>
+              <td>
+                <div class="">
+                  <form class="" name="form" action="altera.php" method="post">
+                    <div class="">
+                      <button type="submit" name="altera" value="<?= $linha["id_pessoa"] ?>" class="success button">Editar</button>
+                    </div>
+                  </form>
+                  <form class="" name="form2" action="index.php" method="post">
+                    <div class="">
+                      <button type="submit" name="excluir" value="<?= $linha["id_pessoa"] ?>" class="alert button">Excluir</button>
+                    </div>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            <?php
           }
         }
-      ?>
-    </table>
+        ?>
+      </table>
+      <div class="">
+        <a class="button" href="">Criar contato</a>
+      </div>
+    </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  function valida(){
+    alert("Excluido com sucesso!");
+  }
+</script>
+
+<?php
+  if(isset($_REQUEST["excluir"])){
+    $excluir = $_REQUEST["excluir"];
+
+    $sql = "delete from pessoa where id_pessoa = '{$excluir}'";
+    $deleta = mysqli_query($conexao, $sql);
+
+    header("location:index.php");
+  }
+?>
