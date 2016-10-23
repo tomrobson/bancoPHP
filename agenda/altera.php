@@ -16,6 +16,14 @@
   $sql = "select id_pessoa, nome, sexo, idade, telefone from pessoa where id_pessoa = '{$altera}'";
   $requisita = mysqli_query($conexao, $sql);
   $resultado = mysqli_fetch_assoc($requisita);
+
+  if($resultado["sexo"]=='M'){
+    $masculino = "selected/";
+    $feminino = "/";
+  }else if($resultado["sexo"]=='F'){
+    $masculino = "/";
+    $feminino = "selected/";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -46,13 +54,8 @@
           <div class="">
             <fieldset>
               <legend>Sexo:</legend>
-              <?= if($resultado["sexo"]=='M'){ ?>
-                <input type="radio" name="sexo" value="M" id="sexoM" select/><label>Masculino</label>
-                <input type="radio" name="sexo" value="F" id="sexoF"/><label>Feminino</label>
-              <?= }else if($resultado["sexo"]=='F'){ ?>
-                <input type="radio" name="sexo" value="M" id="sexoM"/><label>Masculino</label>
-                <input type="radio" name="sexo" value="F" id="sexoF" select/><label>Feminino</label>
-              <?= } ?>
+                <input type="radio" name="sexo" value="M" id="sexoM" <?= $masculino ?>><label>Masculino</label>
+                <input type="radio" name="sexo" value="F" id="sexoF" <?= $feminino ?>><label>Feminino</label>
             </fieldset>
           </div>
           <div class="row">
