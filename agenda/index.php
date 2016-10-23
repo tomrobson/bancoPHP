@@ -72,14 +72,14 @@
               <td><?= $linha["idade"] ?></td>
               <td><?= $linha["telefone"] ?></td>
               <td>
-                <div class="">
+                <div class="row">
                   <form class="" name="form" action="altera.php" method="post">
-                    <div class="">
+                    <div class="small-4 columns">
                       <button type="submit" name="altera" value="<?= $linha["id_pessoa"] ?>" class="success button">Editar</button>
                     </div>
                   </form>
-                  <form class="" name="form2" action="index.php" method="post">
-                    <div class="">
+                  <form class="" name="form2" action="excluir.php" method="post">
+                    <div class="small-1 columns">
                       <button type="submit" name="excluir" value="<?= $linha["id_pessoa"] ?>" class="alert button">Excluir</button>
                     </div>
                   </form>
@@ -92,25 +92,8 @@
         ?>
       </table>
       <div class="">
-        <a class="button" href="">Criar contato</a>
+        <a class="button" href="criar.html">Criar contato</a>
       </div>
     </div>
   </body>
 </html>
-
-<script type="text/javascript">
-  function valida(){
-    alert("Excluido com sucesso!");
-  }
-</script>
-
-<?php
-  if(isset($_REQUEST["excluir"])){
-    $excluir = $_REQUEST["excluir"];
-
-    $sql = "delete from pessoa where id_pessoa = '{$excluir}'";
-    $deleta = mysqli_query($conexao, $sql);
-
-    header("location:index.php");
-  }
-?>
