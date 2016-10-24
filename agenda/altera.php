@@ -18,11 +18,11 @@
   $resultado = mysqli_fetch_assoc($requisita);
 
   if($resultado["sexo"]=='M'){
-    $masculino = "selected/";
+    $masculino = "checked/";
     $feminino = "/";
   }else if($resultado["sexo"]=='F'){
     $masculino = "/";
-    $feminino = "selected/";
+    $feminino = "checked/";
   }
 ?>
 
